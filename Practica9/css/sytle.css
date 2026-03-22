@@ -1,0 +1,385 @@
+:root {
+    --color-principal: rgb(179, 232, 214);
+    --color-texto: rgb(73, 56, 56);
+    --color-hover: rgb(37, 30, 30);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 241, 222);
+}
+
+section {
+    margin: 1rem 0;
+}
+
+/* Tots els h2 iguals */
+section h2,
+#reserva h2 {
+    text-align: center; /* Centra el text horitzontalment */
+    font-size: 2rem;
+    margin-bottom: 2rem; /* Separació amb el contingut inferior */
+    color: var(--color-texto);
+}
+
+/* ===== MENÚ ===== */
+.menu {
+    position: sticky; /* Es queda fixe a dalt en fer scroll */
+    top: 0; /* S'enganxa a la part superior */
+    width: 100%;
+    padding: 0.1rem 1rem;
+    z-index: 100; /* Per sobre de tot el contingut */
+    display: flex;
+    justify-content: flex-end; /* Empeny el menú cap a la dreta */
+    background-color: var(--color-principal);
+}
+
+.menu ul {
+    display: flex; /* Posa els enllaços en fila horitzontal */
+    list-style: none;  /* Treu els punts de la llista */
+    gap: 2rem; /* Espai entre cada enllaç */
+    padding: 1rem;
+    margin: 0;
+    background: none;
+    border-radius: 0;
+}
+
+.menu a {
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    text-decoration: none; /* Treu el subratllat per defecte */
+}
+
+.menu a:hover {
+    color: var(--color-hover);
+    text-decoration: underline; /* Apareix subratllat en passar el ratolí */
+}
+
+/* ===== BOTÓ RESERVAR ===== */
+.btn-reservar {
+    position: fixed; /* Es mou amb la pantalla, no amb el scroll */
+    bottom: 1rem; /* A 1rem del marge inferior */
+    right: 1rem; /* A 1rem del marge dret (posició inferior dreta) */
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    text-decoration: none;
+    background-color: var(--color-principal);
+    padding: 0.5rem;
+    border-radius: 5rem;  /* Forma de cercle (totalment arrodonit) */
+}
+
+.btn-reservar:hover {
+    color: var(--color-hover);
+    text-decoration: underline;
+}
+
+/* ===== CAPÇALERA ===== */
+.header {
+    position: relative; /* Necessari per posicionar el text a sobre de la imatge */
+    margin: 0;
+}
+
+.text-header .slogan {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    font-weight: 300; /* Lletra més fina que la normal */
+    color: white;
+}
+
+.header img {
+    width: 100%; /* Ocupa tot l'ample del contenidor */
+    height: 25rem;
+    object-fit: cover; /* La imatge s'ajusta sense deformar-se, tallant si cal */
+}
+
+.text-header {
+    position: absolute; /* Es posiciona sobre la imatge */
+    top: 50%; /* Centrat vertical (a la meitat) */
+    left: 2rem; /* Separat 2rem del marge esquerre */
+    transform: translateY(-50%); /* Ajust per centrar perfectament vertical */
+    color: white;
+}
+
+.text-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* ===== SOBRE NOSALTRES ===== */
+.nosaltres {
+    padding: 3rem 1rem;
+    background-color: rgb(255, 241, 222);
+}
+
+.linia {
+    display: flex; /* Col·loca imatge i text en la mateixa fila */
+    align-items: center; /* Centra verticalment els elements */
+    gap: 2rem; /* Espai entre imatge i text */
+    max-width: 62.5rem;
+    margin: 2rem auto; /* Centra el bloc horitzontalment */
+    flex-wrap: wrap; /* En mòbil, imatge i text es posen a sota */
+}
+
+.linia2 {
+    flex-direction: row-reverse; /* Inverteix l'ordre: text a l'esquerra, imatge a la dreta */
+}
+
+.linia-img,
+.linia-text {
+    flex: 1; /* Ambdós ocupen el mateix espai disponible */
+    min-width: 15.6rem; /* Amplada mínima abans de fer el salt a mòbil */
+}
+
+.linia-img img {
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1); /* Ombra suau per destacar */
+    height: 10rem;
+}
+
+.linia-text p {
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    margin-bottom: 1rem;
+}
+
+/* ===== CARTA ===== */
+.menu-contenedor {
+    display: grid; /* Crea una estructura de dues columnes */
+    grid-template-columns: 9.3rem 1fr; /* Columna esquerra fixa, dreta flexible */
+    grid-template-areas: "lateral contenido";
+    gap: 2rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    align-items: stretch; /* Fa que les dues columnes tinguin la mateixa altura */
+}
+
+.menu-lateral-izq {
+    grid-area: lateral;
+    display: grid; /* Organitza els blocs Helats i Galetes en columna */
+    grid-template-rows: 1fr 1fr; /* Cada bloc ocupa la meitat de l'espai */
+    gap: 1rem;
+}
+
+.menu-bloque {
+    background-color: var(--color-principal);
+    color: var(--color-hover);
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-radius: 0.6rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center; /* Centra el text verticalment dins del bloc */
+    justify-content: center; /* Centra el text horitzontalment dins del bloc */
+}
+
+.menu-contenido {
+    grid-area: contenido;
+    display: grid;
+    grid-auto-rows: auto; /* Cada fila s'ajusta al seu contingut */
+    gap: 2rem;
+}
+
+.menu-bloque-contenido h3 {
+    color: var(--color-texto);
+    margin-bottom: 0.5rem;
+}
+
+.menu-bloque-contenido p {
+    font-size: 1rem;
+    color: var(--color-texto);
+    margin-bottom: 1rem;
+}
+
+.imagenes-lateral {
+    display: grid; /* Organitza les imatges en graella */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnes d'igual amplada */
+    gap: 1rem; /* Espai entre les imatges */
+}
+
+.menu-item {
+    position: relative; /* Necessari per posar el text a sobre de la imatge */
+}
+
+.menu-item img {
+    width: 100%;
+    height: 11.25rem;
+    object-fit: cover;
+    border-radius: 0.9rem;
+}
+
+.menu-item .texto-img {
+    position: absolute; /* Es col·loca a sobre de la imatge */
+    bottom: 0; /* S'enganxa a la part inferior de la imatge */
+    left: 0;
+    width: 100%; /* Ocupa tot l'ample de la imatge */
+    background-color: rgba(37,30,30,0.6); /* Fons negre semitransparent */
+    color: white;
+    padding: 0.3rem;
+    text-align: center;
+    border-bottom-left-radius: 0.9rem; /* Arrodoneix només la part inferior */
+    border-bottom-right-radius: 0.9rem;
+    font-size: 1rem;
+}
+
+/* ===== GALERIA ===== */
+.galeria-contenedor {
+    display: flex; /* Organitza les imatges en fila */
+    flex-wrap: wrap;/* Quan no caben, baixen a la fila següent */
+    justify-content: center; /* Centra les imatges horitzontalment */
+    gap: 1rem; /* Espai entre imatges */
+}
+
+.galeria-contenedor img {
+    width: calc(25% - 1rem); /*per evitar l'overflow */
+    border: 0.18rem solid var(--color-texto);
+    border-radius: 10px;
+    transition: 0.6rem; /* Transició suau per quan canvia l'estil */
+    height: 15rem;
+}
+
+.galeria-contenedor img:hover {
+    filter: brightness(60%); /* Enfosqueix la imatge en passar el ratolí */
+    box-shadow: 0 0 0.6rem var(--color-hover);
+    border: 0.18rem solid var(--color-hover);
+}
+
+/* Imatges més fosques */
+.galeria-contenedor img:nth-child(1),
+.galeria-contenedor img:nth-child(4),
+.galeria-contenedor img:nth-child(5),
+.galeria-contenedor img:nth-child(8) {
+    filter: brightness(50%); /* Redueix la brillantor a la meitat */
+}
+
+/* Quan la pantalla és més petita que 50rem (uns 800px) */
+@media (max-width: 50rem) {
+    .galeria-contenedor img {
+        width: 45%; /* 2 imatges per fila */
+    }
+}
+
+/* Quan la pantalla és més petita que 31.25rem (uns 500px) */
+@media (max-width: 31.25rem) {
+    .galeria-contenedor img {
+        width: 90%; /* 1 imatge per fila */
+    }
+}
+
+/* ===== FORMULARI ===== */
+#reserva {
+    max-width: 31.25rem;
+    margin: 4rem auto; /* Centrat horitzontal amb marge superior/inferior */
+    padding: 1rem;
+    background-color: rgb(255, 241, 222);
+    border-radius: 0.9rem;
+}
+
+.formulario-heladeria {
+    display: flex;
+    flex-direction: column;  /* Col·loca els camps un a sobre de l'altre */
+    gap: 1rem;  /* Espai entre cada camp */
+}
+
+.fila {
+    display: grid;
+    gap: 1rem;
+}
+
+.fila:nth-child(1),
+.fila:nth-child(2) {
+    grid-template-columns: 1fr 1fr; /* Dues columnes d'igual amplada */
+}
+
+.campo input,
+.fila textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.6rem;
+    border: 0.06rem solid #ccc;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none; /* Treu el contorn blau per defecte */
+    transition: border-color 0.3s; /* Transició suau per al color de la vora */
+}
+
+.campo input:focus,
+.fila textarea:focus {
+    border-color: var(--color-principal); /* Canvia el color de la vora al seleccionar */
+}
+
+.fila textarea {
+    min-height: 5rem;
+}
+
+.fila-boton {
+    display: flex;
+    justify-content: flex-end; /* Empeny el botó cap a la dreta */
+}
+
+.fila-boton button {
+    padding: 0.8rem 1.2rem;
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    font-weight: bold;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer; /* Canvia el cursor a mà */
+    transition: background-color 0.3s;
+}
+
+.fila-boton button:hover {
+    background-color: rgb(94, 135, 120); /* Color més fosc en passar el ratolí */
+}
+
+label {
+    margin-bottom: 0.3rem;
+    display: block;
+    color: #444;
+}
+
+/* ===== PEU DE PÀGINA ===== */
+#footer {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    padding: 1.5rem 2rem;
+}
+
+.footer-contenedor {
+    display: flex; /* Col·loca info i logo en la mateixa fila */
+    justify-content: space-between; /* Un a l'esquerra i l'altre a la dreta */
+    align-items: center; /* Centra verticalment */
+    flex-wrap: wrap; /* En mòbil es posen un a sobre l'altre */
+}
+
+.footer-izquierda {
+    display: flex;
+    gap: 2rem; /* Espai entre correu i telèfon */
+}
+
+.footer-izquierda a {
+    display: flex;
+    align-items: center; /* Centra la icona i el text verticalment */
+    gap: 0.5rem; /* Espai entre icona i text */
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-izquierda a:hover {
+    text-decoration: underline;
+}
+
+.material-icons {
+    font-size: 1.25rem;
+}
+
+.footer-derecha .footer-logo {
+    max-height: 3rem;
+    width: auto;
+}
